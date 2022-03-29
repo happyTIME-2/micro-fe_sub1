@@ -10,7 +10,7 @@
     </template>
     <t-menu-item 
       v-for="(item, index) in routes"
-      :value="'item_' + index"
+      :value="index"
       :key="index"
     >
       <span>{{item.name}}</span>
