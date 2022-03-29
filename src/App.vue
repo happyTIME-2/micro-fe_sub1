@@ -1,8 +1,8 @@
 <script setup lang="ts">
-const router = useRouter();
-const go = (path: string) => {
-  router.push(path);
-}
+// const router = useRouter();
+// const go = (path: string) => {
+//   router.push(path);
+// }
 </script>
 
 <template>
@@ -13,7 +13,7 @@ const go = (path: string) => {
   <router-link class="icon-btn mx-2" to="/about">
     about<div i-carbon-dicom-overlay mx-auto/>
   </router-link> -->
-
+<!-- 
   <button
     btn m-3 text-sm
     @click="go('/')"
@@ -26,7 +26,8 @@ const go = (path: string) => {
   >
     <div i-carbon-dicom-overlay mx-auto/>about
   </button>
-  <router-view />
+  <router-view /> -->
+  <Layout />
 </template>
 
 <style>
@@ -36,6 +37,5 @@ const go = (path: string) => {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

@@ -5,6 +5,7 @@ import Pages from 'vite-plugin-pages'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Unocss from 'unocss/vite'
+import { TDesignResolver } from 'unplugin-vue-components/resolvers';
 
 import qiankun from 'vite-plugin-qiankun'
 
@@ -35,12 +36,18 @@ export default ({ mode }: any) => {
           '@vueuse/head',
           '@vueuse/core',
         ],
+        resolvers: [TDesignResolver({
+          library: 'vue-next'
+        })],
         dts: 'src/auto-imports.d.ts',
       }),
 
       Components({
         extensions: ['vue', 'md'],
         include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
+        resolvers: [TDesignResolver({
+          library: 'vue-next'
+        })],
         dts: 'src/components.d.ts',
       }),
 

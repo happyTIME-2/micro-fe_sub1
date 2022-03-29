@@ -1,9 +1,11 @@
 import App from './App.vue'
 // import router from './router'
+import TDesign from 'tdesign-vue-next';
 import { renderWithQiankun, qiankunWindow } from 'vite-plugin-qiankun/dist/helper';
 import { createRouter, createWebHistory } from 'vue-router'
 import routes from '~pages'
 
+import 'tdesign-vue-next/es/style/index.css';
 import '@unocss/reset/tailwind.css'
 import './styles/main.css'
 import 'uno.css'
@@ -27,7 +29,7 @@ function render(props = {}) {
   console.log('render', routes);
 
   instance = createApp(App);
-  instance.use(router);
+  instance.use(router).use(TDesign);
   instance.mount(container ? container.querySelector('#app') : '#app');
 }
 
