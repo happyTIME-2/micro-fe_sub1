@@ -3,12 +3,15 @@ import App from './App.vue'
 import TDesign from 'tdesign-vue-next';
 import { renderWithQiankun, qiankunWindow } from 'vite-plugin-qiankun/dist/helper';
 import { createRouter, createWebHistory } from 'vue-router'
+import { createPinia } from 'pinia';
 import routes from '~pages'
 
-import 'tdesign-vue-next/es/style/index.css';
+// import 'tdesign-vue-next/es/style/index.css';
 import '@unocss/reset/tailwind.css'
 import './styles/main.css'
 import 'uno.css'
+
+import { registerStore } from '@/stores';
 
 console.log(import.meta.env)
 
@@ -25,17 +28,18 @@ function render(props = {}) {
     history: createWebHistory(qiankunWindow.__POWERED_BY_QIANKUN__ ? '/app-vue' : '/'),
     routes
   })
-
-  console.log('render', routes);
+  const pinia = createPinia();
 
   instance = createApp(App);
-  instance.use(router).use(TDesign);
+  instance.use(router).use(pinia).use(TDesign);
   instance.mount(container ? container.querySelector('#app') : '#app');
 }
 
 renderWithQiankun({
   mount(props) {
-    console.log('mount');
+    console.log('mount', props.store);
+
+    registerStore(props);
     render(props);
   },
   bootstrap() {
