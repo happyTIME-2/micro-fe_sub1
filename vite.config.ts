@@ -26,6 +26,13 @@ export default ({ mode }: any) => {
       port: 3004,
       cors: true
     },
+    build: {
+      terserOptions: {
+        compress: {
+          drop_console: true
+        }
+      },
+    },
     plugins: [
       vue(),
 
