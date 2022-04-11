@@ -25,7 +25,7 @@ let router: any = null;
 function render(props = {}) {
   const { container } = props as any;
   router = createRouter({
-    history: createWebHistory(qiankunWindow.__POWERED_BY_QIANKUN__ ? '/app-vue' : '/'),
+    history: createWebHistory(qiankunWindow.__POWERED_BY_QIANKUN__ ? '/sub-app/' : '/'),
     routes
   })
   const pinia = createPinia();
